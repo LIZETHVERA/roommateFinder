@@ -44,6 +44,7 @@ module.exports = function(app) {
     newFriend.routeName = newFriend.name.replace(/\s+/g, "").toLowerCase();
   
     console.log(newFriend);
+    
   
     friendsData.push(newFriend);
   

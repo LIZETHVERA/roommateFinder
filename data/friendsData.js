@@ -8,7 +8,7 @@
 var tableArray = [
     {
       routeName: "Ahmed",
-      Name: "Ahmed",
+      name: "Ahmed",
       photo:"",
       scores:[
           5,
