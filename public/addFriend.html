@@ -182,15 +182,31 @@
     </footer>
 
   </div>
-
-
-   
-
   </div>
 
-</body>
 
-</html>
+  <!-- Modal -->
+  <div id="results-modal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+  
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h2 class="modal-title"><strong>Best Match</strong></h2>
+          </div>
+          <div class="modal-body">
+            <h2 id="match-name"></h2>
+            <img id="match-img" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+
 
 <!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
 <script type="text/javascript">
@@ -240,11 +256,17 @@ console.log("hello");
 
         // AJAX post the data to the friends API.
         $.post("/api/friends", newFriend, function(data) { 
-         
-          if (data) {
+      
+            if (data) {
             console.log(data);
-            
-            alert("Yay! You are officially booked!");
+            $("#match-name").text(data.name);
+            $("#match-img").attr("src", data.photo);
+
+          // Show the modal with the best match
+            $("#results-modal").modal("toggle");
+          
+
+            alert("Yay! Thanks for the survey!");
           }
           else {
             alert("Sorry you are on the wait list");
@@ -269,3 +291,7 @@ console.log("hello");
       }
     });
 </script>
+
+
+</body>
+</html>
