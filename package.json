@@ -1,16 +1,27 @@
 {
-  "name": "hotrestaurant",
-  "version": "1.0.1",
-  "description": "",
+  "name": "roommatefinder",
+  "version": "1.0.0",
+  "description": "roommateFinder",
   "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "watch": "nodemon server.js"
-  },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "express": "^4.17.1"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LIZETHVERA/roommateFinder.git"
+  },
+  "keywords": [
+    "friend"
+  ],
+  "author": "vera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LIZETHVERA/roommateFinder/issues"
+  },
+  "homepage": "https://github.com/LIZETHVERA/roommateFinder#readme"
 }
