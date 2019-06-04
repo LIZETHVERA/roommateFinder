@@ -44,11 +44,28 @@ module.exports = function(app) {
     newFriend.routeName = newFriend.name.replace(/\s+/g, "").toLowerCase();
   
     console.log(newFriend);
-    
-  
+     
     friendsData.push(newFriend);
   
-    res.json(newFriend);
+    res.json(newFriend);      
+
+    var newFriendScores = newFriend.scores
+    for (var i=0; i < friendsData.length; i++){
+      var others = friendsData[i].scores
+      console.log("this is others: " + others);
+      
+    }
+    
+    console.log(newFriendScores);
+   
+
+    for (var i=0; i < newFriendScores.length; i++){
+      var diff = Math.abs(newFriendScores[i] - others[i]);
+      console.log(diff);
+      
+    }
+    
+
   });
 
   // ---------------------------------------------------------------------------

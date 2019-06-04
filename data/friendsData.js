@@ -22,6 +22,23 @@ var tableArray = [
           4,
           1
         ]
+    },
+    {
+      routeName: "LissaBer",
+      name: "Lissa Ber",
+      photo:"",
+      scores:[
+          4,
+          1,
+          1,
+          4,
+          5,
+          1,
+          3,
+          5,
+          4,
+          3
+        ]
     }
   ];
   
