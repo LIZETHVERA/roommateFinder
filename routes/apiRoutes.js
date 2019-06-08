@@ -12,18 +12,18 @@ var waitListData = require("../data/waitinglistData");
 // ROUTING
 // ===============================================================================
 
-module.exports = function(app) {
+module.exports = function (app) {
   // API GET Requests
   // Below code handles when users "vi8sit" a page.
   // In each of the below cases when a user visits a link
   // (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the table)
   // ---------------------------------------------------------------------------
 
-  app.get("/api/friends", function(req, res) {
+  app.get("/api/friends", function (req, res) {
     res.json(friendsData);
   });
 
-  app.get("/api/waitlist", function(req, res) {
+  app.get("/api/waitlist", function (req, res) {
     res.json(waitListData);
   });
 
@@ -35,44 +35,77 @@ module.exports = function(app) {
   // Then the server saves the data to the friendsData array)
   // ---------------------------------------------------------------------------
 
-  app.post("/api/friends", function(req, res) {
-    
+  app.post("/api/friends", function (req, res) {
+
     var newFriend = req.body;
 
     // Using a RegEx Pattern to remove spaces from newCharacter
     // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
     newFriend.routeName = newFriend.name.replace(/\s+/g, "").toLowerCase();
-  
+
     console.log(newFriend);
-     
-    friendsData.push(newFriend);
-  
-    res.json(newFriend);      
+
+
+
+    // res.json(newFriend);
 
     var newFriendScores = newFriend.scores
-    for (var i=0; i < friendsData.length; i++){
-      var others = friendsData[i].scores
-      console.log("this is others: " + others);
-      
-    }
-    
-    console.log(newFriendScores);
-   
 
-    for (var i=0; i < newFriendScores.length; i++){
-      var diff = Math.abs(newFriendScores[i] - others[i]);
-      console.log(diff);
-      
-    }
-    
+    var newFriendScore = 0;
 
+    for (var i = 0; i < newFriendScores.length; i++) {
+      newFriendScore += Math.abs(newFriendScores[i]);
+
+    }
+
+    console.log(newFriendScore);
+    var differences = [];
+
+    if (friendsData.length > 1) {
+      friendsData.forEach(function (user) {
+        var totalDifference = 0;
+        for (var i = 0; i < newFriend.scores.length; i++) {
+
+          var otherScore = user.scores[i];
+         
+
+          var thisScore = newFriend.scores[i];
+
+          var difference = +otherScore - +thisScore
+
+          totalDifference += Math.abs(difference);
+        }
+
+        differences.push(totalDifference);
+
+      });
+      console.log(differences);
+
+      var minDiff = Math.min.apply(null, differences);
+      console.log(minDiff);
+
+
+      var roomMatch = [];
+
+      for (var i = 0; i < differences.length; i++) {
+        if (differences[i] === minDiff && !0) {
+          roomMatch.push(friendsData[i]);
+        }
+      }
+      res.json(roomMatch);
+      console.log(roomMatch);
+
+
+    }
+
+    friendsData.push(newFriend);
   });
 
   // ---------------------------------------------------------------------------
   // I added this below code so you could clear out the table while working with the functionality.
   // Don"t worry about it!
 
-  app.post("/api/clear", function(req, res) {
+  app.post("/api/clear", function (req, res) {
     // Empty out the arrays of data
     friendsData.length = 0;
     waitListData.length = 0;

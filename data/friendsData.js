@@ -26,7 +26,7 @@ var tableArray = [
     {
       routeName: "LissaBer",
       name: "Lissa Ber",
-      photo:"",
+      photo:"https://imgix.bustle.com/uploads/image/2018/5/9/fa2d3d8d-9b6c-4df4-af95-f4fa760e3c5c-2t4a9501.JPG?w=970&h=546&fit=crop&crop=faces&auto=format&q=70",
       scores:[
           4,
           1,
