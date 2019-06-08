@@ -9,7 +9,7 @@ var tableArray = [
     {
       routeName: "Ahmed",
       name: "Ahmed",
-      photo:"",
+      photo:"https://content-static.upwork.com/uploads/2014/10/01073435/profilephoto5.jpg",
       scores:[
           5,
           1,

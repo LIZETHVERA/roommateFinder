@@ -177,7 +177,7 @@
       <div class="container">
         <p>
           <a href="/api/friends">API Friends</a> |
-          <a href="/api/waitlist">API Wait List</a>
+      
       </div>
     </footer>
 
@@ -214,7 +214,7 @@
 $("#submit").on("click", function(event) {
       event.preventDefault();
 
-console.log("hello");
+
 
       // Form validation
       function validateForm() {
@@ -267,10 +267,7 @@ console.log("hello");
           
           alert("Yay! Thanks for the survey!");
           }
-          else {
-            alert("Sorry you are on the wait list");
-          }
-
+          
           // Clear the form when submitting
 
           $("#q1").val(""),
